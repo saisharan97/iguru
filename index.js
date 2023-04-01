@@ -1,159 +1,2110 @@
-function displayInfo(progressList) {
+const apiData={
+	ProgressList: {
+	  ExamMasters: [
+		{
+		  ExamMasterID: 8441,
+		  ExamCategoryName: "MAHARAJA",
+		  ExamCategoryID: 3724,
+		  Percentage: 100.0,
+		  School_ID: 282,
+		  ExamCategory_ID: 3724,
+		  ExamMasterName: "Term I",
+		  ExamMasterRptName: "Best Score PT-I, II",
+		  IsReportable: "False",
+		  ExamOrder: 124,
+		  Status: "True",
+		  ExamMarksPercent: 100.0,
+		  IsRound: "True",
+		  DateOfGenerate: "3/29/2023",
+		},
+		{
+		  ExamMasterID: 8442,
+		  ExamCategoryName: "MAHARAJA",
+		  ExamCategoryID: 3724,
+		  Percentage: 100.0,
+		  School_ID: 282,
+		  ExamCategory_ID: 3724,
+		  ExamMasterName: "Term II",
+		  ExamMasterRptName: "Best Score PT-III, IV",
+		  IsReportable: "False",
+		  ExamOrder: 125,
+		  Status: "True",
+		  ExamMarksPercent: 100.0,
+		  IsRound: "True",
+		  DateOfGenerate: "3/29/2023",
+		},
+	  ],
+	  stGrades: [
+		{
+		  Grade: "A1   ",
+		  GradeID: 61,
+		  Range: "91-100",
+		  Remarks: "very good",
+		  Result: "PASSED",
+		  School_ID: null,
+		  GradePoints: 10,
+		  minRange: 91.0,
+		  maxRange: 100.0,
+		  Signature:
+			"~/Content/Photos/iGURU/282/Employee/20230301071517177.jpg",
+		  GradeModel: 0,
+		},
+		{
+		  Grade: "A2   ",
+		  GradeID: 62,
+		  Range: "81-90",
+		  Remarks: "good",
+		  Result: "PASSED",
+		  School_ID: null,
+		  GradePoints: 9,
+		  minRange: 81.0,
+		  maxRange: 90.0,
+		  Signature:
+			"~/Content/Photos/iGURU/282/Employee/20230301071517177.jpg",
+		  GradeModel: 0,
+		},
+		{
+		  Grade: "B1   ",
+		  GradeID: 63,
+		  Range: "71-80",
+		  Remarks: "above average",
+		  Result: "PASSED",
+		  School_ID: null,
+		  GradePoints: 8,
+		  minRange: 71.0,
+		  maxRange: 80.0,
+		  Signature:
+			"~/Content/Photos/iGURU/282/Employee/20230301071517177.jpg",
+		  GradeModel: 0,
+		},
+		{
+		  Grade: "B2   ",
+		  GradeID: 64,
+		  Range: "61-70",
+		  Remarks: "average",
+		  Result: "PASSED",
+		  School_ID: null,
+		  GradePoints: 7,
+		  minRange: 61.0,
+		  maxRange: 70.0,
+		  Signature:
+			"~/Content/Photos/iGURU/282/Employee/20230301071517177.jpg",
+		  GradeModel: 0,
+		},
+		{
+		  Grade: "C1   ",
+		  GradeID: 65,
+		  Range: "51-60",
+		  Remarks: "below average",
+		  Result: "PASSED",
+		  School_ID: null,
+		  GradePoints: 6,
+		  minRange: 51.0,
+		  maxRange: 60.0,
+		  Signature:
+			"~/Content/Photos/iGURU/282/Employee/20230301071517177.jpg",
+		  GradeModel: 0,
+		},
+		{
+		  Grade: "C2   ",
+		  GradeID: 66,
+		  Range: "41-50",
+		  Remarks: "poor",
+		  Result: "PASSED",
+		  School_ID: null,
+		  GradePoints: 5,
+		  minRange: 41.0,
+		  maxRange: 50.0,
+		  Signature:
+			"~/Content/Photos/iGURU/282/Employee/20230301071517177.jpg",
+		  GradeModel: 0,
+		},
+		{
+		  Grade: "D    ",
+		  GradeID: 67,
+		  Range: "34-40",
+		  Remarks: "very poor",
+		  Result: "PASSED",
+		  School_ID: null,
+		  GradePoints: 4,
+		  minRange: 34.0,
+		  maxRange: 40.0,
+		  Signature:
+			"~/Content/Photos/iGURU/282/Employee/20230301071517177.jpg",
+		  GradeModel: 0,
+		},
+		{
+		  Grade: "E    ",
+		  GradeID: 1591,
+		  Range: "0-33",
+		  Remarks: "need to improve",
+		  Result: "FAILED",
+		  School_ID: null,
+		  GradePoints: 3,
+		  minRange: 0.0,
+		  maxRange: 33.0,
+		  Signature:
+			"~/Content/Photos/iGURU/282/Employee/20230301071517177.jpg",
+		  GradeModel: 0,
+		},
+	  ],
+	  lstInternal: [
+		{
+		  InternalExamID: 921,
+		  InternalExam: "PP I",
+		  InternalExamCode: "PT I",
+		  ExamCategoryID: "3724",
+		  SchoolID: 282,
+		  MaxMarks: 20.0,
+		  PassMarks: "0.00",
+		  Status: "True",
+		  DisplayOrder: 1,
+		  ExamMasterID: 8441,
+		  ScoredMarks: 0.0,
+		  InternalExamPercentage: 100.0,
+		  IsRound: false,
+		  GroupTest: 1,
+		},
+		{
+		  InternalExamID: 921,
+		  InternalExam: "PP I",
+		  InternalExamCode: "PT I",
+		  ExamCategoryID: "3724",
+		  SchoolID: 282,
+		  MaxMarks: 20.0,
+		  PassMarks: "0.00",
+		  Status: "True",
+		  DisplayOrder: 1,
+		  ExamMasterID: 8442,
+		  ScoredMarks: 0.0,
+		  InternalExamPercentage: 100.0,
+		  IsRound: false,
+		  GroupTest: 1,
+		},
+		{
+		  InternalExamID: 922,
+		  InternalExam: "PP II",
+		  InternalExamCode: "PT II",
+		  ExamCategoryID: "3724",
+		  SchoolID: 282,
+		  MaxMarks: 20.0,
+		  PassMarks: "0.00",
+		  Status: "True",
+		  DisplayOrder: 2,
+		  ExamMasterID: 8441,
+		  ScoredMarks: 0.0,
+		  InternalExamPercentage: 100.0,
+		  IsRound: false,
+		  GroupTest: 1,
+		},
+		{
+		  InternalExamID: 922,
+		  InternalExam: "PP II",
+		  InternalExamCode: "PT II",
+		  ExamCategoryID: "3724",
+		  SchoolID: 282,
+		  MaxMarks: 20.0,
+		  PassMarks: "0.00",
+		  Status: "True",
+		  DisplayOrder: 2,
+		  ExamMasterID: 8442,
+		  ScoredMarks: 0.0,
+		  InternalExamPercentage: 100.0,
+		  IsRound: false,
+		  GroupTest: 1,
+		},
+		{
+		  InternalExamID: 923,
+		  InternalExam: "PP III",
+		  InternalExamCode: "PT III",
+		  ExamCategoryID: "3724",
+		  SchoolID: 282,
+		  MaxMarks: 20.0,
+		  PassMarks: "0.00",
+		  Status: "True",
+		  DisplayOrder: 3,
+		  ExamMasterID: 8441,
+		  ScoredMarks: 0.0,
+		  InternalExamPercentage: 100.0,
+		  IsRound: false,
+		  GroupTest: 2,
+		},
+		{
+		  InternalExamID: 923,
+		  InternalExam: "PP III",
+		  InternalExamCode: "PT III",
+		  ExamCategoryID: "3724",
+		  SchoolID: 282,
+		  MaxMarks: 20.0,
+		  PassMarks: "0.00",
+		  Status: "True",
+		  DisplayOrder: 3,
+		  ExamMasterID: 8442,
+		  ScoredMarks: 0.0,
+		  InternalExamPercentage: 100.0,
+		  IsRound: false,
+		  GroupTest: 2,
+		},
+		{
+		  InternalExamID: 924,
+		  InternalExam: "PP IV",
+		  InternalExamCode: "PT IV",
+		  ExamCategoryID: "3724",
+		  SchoolID: 282,
+		  MaxMarks: 20.0,
+		  PassMarks: "0.00",
+		  Status: "True",
+		  DisplayOrder: 4,
+		  ExamMasterID: 8441,
+		  ScoredMarks: 0.0,
+		  InternalExamPercentage: 100.0,
+		  IsRound: false,
+		  GroupTest: 2,
+		},
+		{
+		  InternalExamID: 924,
+		  InternalExam: "PP IV",
+		  InternalExamCode: "PT IV",
+		  ExamCategoryID: "3724",
+		  SchoolID: 282,
+		  MaxMarks: 20.0,
+		  PassMarks: "0.00",
+		  Status: "True",
+		  DisplayOrder: 4,
+		  ExamMasterID: 8442,
+		  ScoredMarks: 0.0,
+		  InternalExamPercentage: 100.0,
+		  IsRound: false,
+		  GroupTest: 2,
+		},
+	  ],
+	  lstStudentInfo: [
+		{
+		  StudentID: 181521,
+		  SectionID: 2682,
+		  ParentID: 202030,
+		  Name: "BHUVAN SANDEEP  KORDE",
+		  EmailID: "",
+		  Corr_Mobile: "9849369211",
+		  Corr_AddressLine2: "",
+		  Corr_AddressLine1:
+			"204,2ND FLOOR,VYSYA BANK APTS,HUDA COLONY,KOTHAPET,HYD,TS.",
+		  TemplateName: "MaharajaReportCardTemplate",
+		  Photo: "../../Content/Photos/AP/282/Student/181521.jpg",
+		  DOB: "2016-09-11",
+		  RollNumber: "4",
+		  FatherName: "Korde Sandeep Prabhakar  ",
+		  MotherName: "K. Rupali Sandeep  ",
+		  ExamName: "Term II",
+		  ExamRoportName: "Best Score PT-III, IV",
+		  SectionName: "A",
+		  ClassName: "Class_I",
+		  TotalMarks: "680.00",
+		  TotalPassMark: "0.00",
+		  Marks: "480.00",
+		  ClassRank: "10",
+		  Grade: "B2   ",
+		  GradePoint: 7.0,
+		  SchoolName: "MAHATMA N D GROVER DAV PUBLIC SCHOOL",
+		  SchoolLogo:
+			"../../Content/Photos/iGURU/282/School/20230331094403489.JPG",
+		  PrinicipalSignature:
+			"~/Content/Photos/iGURU/282/School/20230331050637784.png",
+		  SchoolShortName: "AVNDPS",
+		  SchoolEmail: "mndgdavschool@gmail.com",
+		  SchoolAddress:
+			"N.H.-33, GOSAINDIH, BUNDU, RANCHI,Affiliated to CBSE, Affiliation No. 1031157,500056",
+		  SchoolPhoneNumber: "7903166423 9835574672",
+		  City: "Hyderabad",
+		  District: "Hyderabad",
+		  State: "Telangana",
+		  Result: "",
+		  WorkingDays: "40",
+		  Presents: null,
+		  AdmissionNumber: "670",
+		  DoctorName: "",
+		  DoctorPhoneNumber: "",
+		  GovernmentID: "",
+		  Height: "0",
+		  Weight: "0",
+		  Medications: "",
+		  ExamMasterID: null,
+		  StudentTotal: 960.0,
+		  TotalMaxMarks: 1440.0,
+		  Totalper: 67.0,
+		  Totalpercent: 66.666666666666666666666666667,
+		  Remark: "average",
+		  Mothertongue: "",
+		  SUIDAI: "919849369211",
+		  House: "",
+		  InternalTotal: 0.0,
+		  InternalExamID: null,
+		  ScoredMarks: 0.0,
+		  SubjectType: 0,
+		  Skills: [
+			{
+			  StudentID: 181521,
+			  ExamMaster: 8441,
+			  Teacher: "",
+			  Skills:
+				"<Skills><Skill><Id>94</Id><rating>1591</rating></Skill><Skill><Id>96</Id><rating>67</rating></Skill><Skill><Id>127</Id><rating>66</rating></Skill><Skill><Id>128</Id><rating>63</rating></Skill></Skills>",
+			},
+			{
+			  StudentID: 181521,
+			  ExamMaster: 8442,
+			  Teacher: "",
+			  Skills:
+				"<Skills><Skill><Id>94</Id><rating>63</rating></Skill><Skill><Id>96</Id><rating>62</rating></Skill><Skill><Id>127</Id><rating>62</rating></Skill><Skill><Id>128</Id><rating>62</rating></Skill></Skills>",
+			},
+		  ],
+		  Attandence: [
+			{
+			  StudentID: 181521,
+			  MonthPresence: 0,
+			  MonthWorking: 0,
+			  MonthID: 5,
+			  MonthName: "May",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 26,
+			  MonthWorking: 30,
+			  MonthID: 6,
+			  MonthName: "Jun",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 1,
+			  MonthWorking: 1,
+			  MonthID: 7,
+			  MonthName: "Jul",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 6,
+			  MonthWorking: 6,
+			  MonthID: 8,
+			  MonthName: "Aug",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 2,
+			  MonthWorking: 2,
+			  MonthID: 9,
+			  MonthName: "Sep",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 0,
+			  MonthWorking: 0,
+			  MonthID: 10,
+			  MonthName: "Oct",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 0,
+			  MonthWorking: 0,
+			  MonthID: 11,
+			  MonthName: "Nov",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 1,
+			  MonthWorking: 1,
+			  MonthID: 12,
+			  MonthName: "Dec",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 0,
+			  MonthWorking: 0,
+			  MonthID: 1,
+			  MonthName: "Jan",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 0,
+			  MonthWorking: 0,
+			  MonthID: 2,
+			  MonthName: "Feb",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 0,
+			  MonthWorking: 0,
+			  MonthID: 3,
+			  MonthName: "Mar",
+			},
+			{
+			  StudentID: 181521,
+			  MonthPresence: 0,
+			  MonthWorking: 0,
+			  MonthID: 4,
+			  MonthName: "Apr",
+			},
+		  ],
+		  Remarks: [
+			{
+			  StudentID: 181521,
+			  ExamMasterID: 8441,
+			  Remarks: "",
+			  PrincipalsRemarks: "",
+			  IsRegularAttendance: "False",
+			  Hieght: "5",
+			  Weight: "85",
+			},
+			{
+			  StudentID: 181521,
+			  ExamMasterID: 8442,
+			  Remarks: "",
+			  PrincipalsRemarks: "",
+			  IsRegularAttendance: "False",
+			  Hieght: "3",
+			  Weight: "45",
+			},
+		  ],
+		  Info: null,
+		  clsRank: null,
+		  ExamMasters: null,
+		  stobjser: [
+			{
+			  StudentID: 181521,
+			  Objervation: "Computer",
+			  Grade: "E    ",
+			  ExamMasterID: 8441,
+			  GradePoints: "3",
+			  Remark: "need to improve",
+			  ExamMasterName: "Term I",
+			  SubObjervation: "",
+			},
+			{
+			  StudentID: 181521,
+			  Objervation: "Music",
+			  Grade: "D    ",
+			  ExamMasterID: 8441,
+			  GradePoints: "4",
+			  Remark: "very poor",
+			  ExamMasterName: "Term I",
+			  SubObjervation: "",
+			},
+			{
+			  StudentID: 181521,
+			  Objervation: "Dance",
+			  Grade: "C2   ",
+			  ExamMasterID: 8441,
+			  GradePoints: "5",
+			  Remark: "poor",
+			  ExamMasterName: "Term I",
+			  SubObjervation: "",
+			},
+			{
+			  StudentID: 181521,
+			  Objervation: "Art/Crafts",
+			  Grade: "B1   ",
+			  ExamMasterID: 8441,
+			  GradePoints: "8",
+			  Remark: "above average",
+			  ExamMasterName: "Term I",
+			  SubObjervation: "",
+			},
+			{
+			  StudentID: 181521,
+			  Objervation: "Computer",
+			  Grade: "B1   ",
+			  ExamMasterID: 8442,
+			  GradePoints: "8",
+			  Remark: "above average",
+			  ExamMasterName: "Term II",
+			  SubObjervation: "",
+			},
+			{
+			  StudentID: 181521,
+			  Objervation: "Music",
+			  Grade: "A2   ",
+			  ExamMasterID: 8442,
+			  GradePoints: "9",
+			  Remark: "good",
+			  ExamMasterName: "Term II",
+			  SubObjervation: "",
+			},
+			{
+			  StudentID: 181521,
+			  Objervation: "Dance",
+			  Grade: "A2   ",
+			  ExamMasterID: 8442,
+			  GradePoints: "9",
+			  Remark: "good",
+			  ExamMasterName: "Term II",
+			  SubObjervation: "",
+			},
+			{
+			  StudentID: 181521,
+			  Objervation: "Art/Crafts",
+			  Grade: "A2   ",
+			  ExamMasterID: 8442,
+			  GradePoints: "9",
+			  Remark: "good",
+			  ExamMasterName: "Term II",
+			  SubObjervation: "",
+			},
+		  ],
+		  cusAttendance: [
+			{
+			  StudentID: 181521,
+			  PresenceDays: 118,
+			  WorkingDays: 125,
+			  ExamMasterID: 8441,
+			  ExamMasterName: "Term I",
+			  ACYID: 8,
+			  Description: "A",
+			  SchoolID: 282,
+			  Status: "True",
+			  CreatedOn: "3/9/2023 6:17:32 AM",
+			  Percentage: 94.0,
+			  PresentDays: 0,
+			},
+			{
+			  StudentID: 181521,
+			  PresenceDays: 300,
+			  WorkingDays: 300,
+			  ExamMasterID: 8442,
+			  ExamMasterName: "Term II",
+			  ACYID: 8,
+			  Description: "Comment",
+			  SchoolID: 282,
+			  Status: "True",
+			  CreatedOn: "3/14/2023 7:08:02 AM",
+			  Percentage: 100.0,
+			  PresentDays: 0,
+			},
+		  ],
+		  stInternals: [
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649937,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93429,
+			  InternalExamID: 921,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "TELUGU",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "TELUGU",
+			  IsExist: "True",
+			  InternalExam: "PP I",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649938,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93429,
+			  InternalExamID: 922,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "TELUGU",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "TELUGU",
+			  IsExist: "True",
+			  InternalExam: "PP II",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649939,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93430,
+			  InternalExamID: 921,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "HINDI",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "HINDI",
+			  IsExist: "True",
+			  InternalExam: "PP I",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649797,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93430,
+			  InternalExamID: 922,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "HINDI",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "HINDI",
+			  IsExist: "True",
+			  InternalExam: "PP II",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649803,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93431,
+			  InternalExamID: 921,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "ENGLISH",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "ENGLISH",
+			  IsExist: "True",
+			  InternalExam: "PP I",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649804,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93431,
+			  InternalExamID: 922,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "ENGLISH",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "ENGLISH",
+			  IsExist: "True",
+			  InternalExam: "PP II",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649798,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93432,
+			  InternalExamID: 921,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "MATHMATICS",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "MATHMATICS",
+			  IsExist: "True",
+			  InternalExam: "PP I",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649799,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93432,
+			  InternalExamID: 922,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "MATHMATICS",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "MATHMATICS",
+			  IsExist: "True",
+			  InternalExam: "PP II",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649805,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93433,
+			  InternalExamID: 921,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "COMPUTER SCIENCE",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "COMPUTER SCIENCE",
+			  IsExist: "True",
+			  InternalExam: "PP I",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649807,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93433,
+			  InternalExamID: 922,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "COMPUTER SCIENCE",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "COMPUTER SCIENCE",
+			  IsExist: "True",
+			  InternalExam: "PP II",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649791,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93434,
+			  InternalExamID: 921,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "SOCIAL STUDIES",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "SOCIAL STUDIES",
+			  IsExist: "True",
+			  InternalExam: "PP I",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649794,
+			  ExamMasterID: 8441,
+			  ExamSubjectID: 93434,
+			  InternalExamID: 922,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "SOCIAL STUDIES",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "SOCIAL STUDIES",
+			  IsExist: "True",
+			  InternalExam: "PP II",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 1,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649985,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93435,
+			  InternalExamID: 923,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "TELUGU",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "TELUGU",
+			  IsExist: "True",
+			  InternalExam: "PP III",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649988,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93435,
+			  InternalExamID: 924,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "TELUGU",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "TELUGU",
+			  IsExist: "True",
+			  InternalExam: "PP IV",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649995,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93436,
+			  InternalExamID: 923,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "HINDI",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "HINDI",
+			  IsExist: "True",
+			  InternalExam: "PP III",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649986,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93436,
+			  InternalExamID: 924,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "HINDI",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "HINDI",
+			  IsExist: "True",
+			  InternalExam: "PP IV",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 650024,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93437,
+			  InternalExamID: 923,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "COMPUTER SCIENCE",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "COMPUTER SCIENCE",
+			  IsExist: "True",
+			  InternalExam: "PP III",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 650026,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93437,
+			  InternalExamID: 924,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "COMPUTER SCIENCE",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "COMPUTER SCIENCE",
+			  IsExist: "True",
+			  InternalExam: "PP IV",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649993,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93438,
+			  InternalExamID: 923,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "ENGLISH",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "ENGLISH",
+			  IsExist: "True",
+			  InternalExam: "PP III",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 649996,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93438,
+			  InternalExamID: 924,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "ENGLISH",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "ENGLISH",
+			  IsExist: "True",
+			  InternalExam: "PP IV",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 650016,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93439,
+			  InternalExamID: 923,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "MATHMATICS",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "MATHMATICS",
+			  IsExist: "True",
+			  InternalExam: "PP III",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 650019,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93439,
+			  InternalExamID: 924,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "MATHMATICS",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "MATHMATICS",
+			  IsExist: "True",
+			  InternalExam: "PP IV",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 650007,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93440,
+			  InternalExamID: 923,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "SOCIAL STUDIES",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "SOCIAL STUDIES",
+			  IsExist: "True",
+			  InternalExam: "PP III",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+			{
+			  StudentID: 181521,
+			  StudentInternalExamID: 650010,
+			  ExamMasterID: 8442,
+			  ExamSubjectID: 93440,
+			  InternalExamID: 924,
+			  ScoredMarks: 0.0,
+			  ACYID: "0",
+			  Perc: "0.00000000000000",
+			  Grade: "E    ",
+			  GradePoints: "3",
+			  ClassSubject: "SOCIAL STUDIES",
+			  MaxMarks: 20.0,
+			  ExamSubjectName: "SOCIAL STUDIES",
+			  IsExist: "True",
+			  InternalExam: "PP IV",
+			  InternalTotal: 0.0,
+			  SubjectType: 2,
+			  PassMark: 0.0,
+			  PaperParent: 0,
+			  InternalExamPercentage: 100.0,
+			  IsRound: false,
+			  GroupTest: 2,
+			},
+		  ],
+		  lstStudent: [
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93429,
+			  ClassSubjectID: 7752,
+			  SubjectID: 1533,
+			  SubjectName: "TELUGU",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8441,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-I, II",
+			  SubjectOrder: 1,
+			  IsExist: "True",
+			  SubjectShortName: "TELUG",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 124,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93435,
+			  ClassSubjectID: 7752,
+			  SubjectID: 1533,
+			  SubjectName: "TELUGU",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8442,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-III, IV",
+			  SubjectOrder: 1,
+			  IsExist: "True",
+			  SubjectShortName: "TELUG",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 125,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93436,
+			  ClassSubjectID: 7753,
+			  SubjectID: 1534,
+			  SubjectName: "HINDI",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8442,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-III, IV",
+			  SubjectOrder: 2,
+			  IsExist: "True",
+			  SubjectShortName: "HINDI",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 125,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93430,
+			  ClassSubjectID: 7753,
+			  SubjectID: 1534,
+			  SubjectName: "HINDI",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8441,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-I, II",
+			  SubjectOrder: 2,
+			  IsExist: "True",
+			  SubjectShortName: "HINDI",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 124,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93431,
+			  ClassSubjectID: 7756,
+			  SubjectID: 2110,
+			  SubjectName: "ENGLISH",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8441,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-I, II",
+			  SubjectOrder: 3,
+			  IsExist: "True",
+			  SubjectShortName: "Eng",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 124,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93438,
+			  ClassSubjectID: 7756,
+			  SubjectID: 2110,
+			  SubjectName: "ENGLISH",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8442,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-III, IV",
+			  SubjectOrder: 3,
+			  IsExist: "True",
+			  SubjectShortName: "Eng",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 125,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93432,
+			  ClassSubjectID: 7757,
+			  SubjectID: 2111,
+			  SubjectName: "MATHMATICS",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8441,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-I, II",
+			  SubjectOrder: 4,
+			  IsExist: "True",
+			  SubjectShortName: "Maths",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 124,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93439,
+			  ClassSubjectID: 7757,
+			  SubjectID: 2111,
+			  SubjectName: "MATHMATICS",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8442,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-III, IV",
+			  SubjectOrder: 4,
+			  IsExist: "True",
+			  SubjectShortName: "Maths",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 125,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93518,
+			  ClassSubjectID: 7758,
+			  SubjectID: 2112,
+			  SubjectName: "EVS",
+			  Marks: 0.0,
+			  SubjectPercentatage: 0.0,
+			  SubjectGrade: "E",
+			  Subject_GradePoints: "3",
+			  Result: "Failed",
+			  Presence: "True",
+			  TotalMaxMarks: 100.0,
+			  TotalPassMarks: "33.00",
+			  Rank: "15",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8441,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-I, II",
+			  SubjectOrder: 5,
+			  IsExist: "False",
+			  SubjectShortName: "EVS",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 0.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "need to improve",
+			  ExamOrder: 124,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93520,
+			  ClassSubjectID: 7758,
+			  SubjectID: 2112,
+			  SubjectName: "EVS",
+			  Marks: 0.0,
+			  SubjectPercentatage: 0.0,
+			  SubjectGrade: "E",
+			  Subject_GradePoints: "3",
+			  Result: "Failed",
+			  Presence: "True",
+			  TotalMaxMarks: 100.0,
+			  TotalPassMarks: "33.00",
+			  Rank: "15",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8442,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-III, IV",
+			  SubjectOrder: 5,
+			  IsExist: "False",
+			  SubjectShortName: "EVS",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 0.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "need to improve",
+			  ExamOrder: 125,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93521,
+			  ClassSubjectID: 9664,
+			  SubjectID: 1540,
+			  SubjectName: "GK",
+			  Marks: 0.0,
+			  SubjectPercentatage: 0.0,
+			  SubjectGrade: "E",
+			  Subject_GradePoints: "3",
+			  Result: "Failed",
+			  Presence: "True",
+			  TotalMaxMarks: 100.0,
+			  TotalPassMarks: "33.00",
+			  Rank: "15",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8442,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-III, IV",
+			  SubjectOrder: 6,
+			  IsExist: "False",
+			  SubjectShortName: "G.K",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 0.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "need to improve",
+			  ExamOrder: 125,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93519,
+			  ClassSubjectID: 9664,
+			  SubjectID: 1540,
+			  SubjectName: "GK",
+			  Marks: 0.0,
+			  SubjectPercentatage: 0.0,
+			  SubjectGrade: "E",
+			  Subject_GradePoints: "3",
+			  Result: "Failed",
+			  Presence: "True",
+			  TotalMaxMarks: 100.0,
+			  TotalPassMarks: "33.00",
+			  Rank: "15",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8441,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-I, II",
+			  SubjectOrder: 6,
+			  IsExist: "False",
+			  SubjectShortName: "G.K",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 0.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "need to improve",
+			  ExamOrder: 124,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93437,
+			  ClassSubjectID: 7754,
+			  SubjectID: 1539,
+			  SubjectName: "COMPUTER SCIENCE",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8442,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-III, IV",
+			  SubjectOrder: 6,
+			  IsExist: "True",
+			  SubjectShortName: "COMP",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 125,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93433,
+			  ClassSubjectID: 7754,
+			  SubjectID: 1539,
+			  SubjectName: "COMPUTER SCIENCE",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8441,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-I, II",
+			  SubjectOrder: 6,
+			  IsExist: "True",
+			  SubjectShortName: "COMP",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 124,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93440,
+			  ClassSubjectID: 42132,
+			  SubjectID: 1538,
+			  SubjectName: "SOCIAL STUDIES",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8442,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-III, IV",
+			  SubjectOrder: 67,
+			  IsExist: "True",
+			  SubjectShortName: "Socia",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 125,
+			  ExamCategoryID: 3724,
+			},
+			{
+			  StudentID: 181521,
+			  ExamSubjectId: 93434,
+			  ClassSubjectID: 42132,
+			  SubjectID: 1538,
+			  SubjectName: "SOCIAL STUDIES",
+			  Marks: 80.0,
+			  SubjectPercentatage: 100.0,
+			  SubjectGrade: "A1",
+			  Subject_GradePoints: "10",
+			  Result: "Passed",
+			  Presence: "True",
+			  TotalMaxMarks: 80.0,
+			  TotalPassMarks: "26.00",
+			  Rank: "1",
+			  WorkingDays: "40",
+			  Presents: "36",
+			  ExamMasterID: 8441,
+			  ExamMarksPercentage: "100",
+			  RptName: "Best Score PT-I, II",
+			  SubjectOrder: 67,
+			  IsExist: "True",
+			  SubjectShortName: "Socia",
+			  Relation: "",
+			  IsRound: null,
+			  SectionID: 0,
+			  ParentID: 0,
+			  Name: null,
+			  AvgMarks: 80.0,
+			  IsInternal: "False",
+			  SubjectType: 2,
+			  Subject_Remarks: "very good",
+			  ExamOrder: 124,
+			  ExamCategoryID: 3724,
+			},
+		  ],
+		  scMarks: null,
+		  Assesment: [],
+		  TermGrade: [
+			{
+			  StudentID: 181521,
+			  Class_ID: 2050,
+			  Section_ID: 2682,
+			  ExamMaster_ID: 8441,
+			  Total_MaxMarks: 480.0,
+			  Total_SecuredMarks: 480.0,
+			  Total_SecuredMarksRound: 480.0,
+			  ClassRank: 11,
+			  IndividualMark: 71.0,
+			  IndividualGrade: "B1   ",
+			  IndividualRemark: "above average",
+			  TotalwithInterMarks: 720.0,
+			  ScoredMarkswithInter: 480.0,
+			  ScoredMarkswithInterRound: 480.0,
+			  TotalPercentage: 67.0,
+			  Percentage: 66.66666666666666666666666667,
+			  PercentageRound: 66.66666666666666666666666667,
+			  TotalGrade: "B2   ",
+			  TotalGradeRound: "B2   ",
+			  TotalGradePoints: 7,
+			  TotalGradePointsRound: 7,
+			  TotalGradeRemarks: "average",
+			  TotalGradeRemarksRound: "average",
+			  IndividualGradePoints: 8,
+			},
+			{
+			  StudentID: 181521,
+			  Class_ID: 2050,
+			  Section_ID: 2682,
+			  ExamMaster_ID: 8442,
+			  Total_MaxMarks: 480.0,
+			  Total_SecuredMarks: 480.0,
+			  Total_SecuredMarksRound: 480.0,
+			  ClassRank: 10,
+			  IndividualMark: 71.0,
+			  IndividualGrade: "B1   ",
+			  IndividualRemark: "above average",
+			  TotalwithInterMarks: 720.0,
+			  ScoredMarkswithInter: 480.0,
+			  ScoredMarkswithInterRound: 480.0,
+			  TotalPercentage: 67.0,
+			  Percentage: 66.66666666666666666666666667,
+			  PercentageRound: 66.66666666666666666666666667,
+			  TotalGrade: "B2   ",
+			  TotalGradeRound: "B2   ",
+			  TotalGradePoints: 7,
+			  TotalGradePointsRound: 7,
+			  TotalGradeRemarks: "average",
+			  TotalGradeRemarksRound: "average",
+			  IndividualGradePoints: 8,
+			},
+		  ],
+		  StudentDiscipline: [
+			{
+			  DeciplineID: 40,
+			  ExamMasterID: 8441,
+			  StudentID: 181521,
+			  GradeName: "C1   ",
+			  Description: "Punctuality",
+			},
+		  ],
+		  InternalMarksSubjects: null,
+		  listTotalInternalMarks: [
+			{
+			  ExamMasterID: 8441,
+			  InternalExamID: 921,
+			  Flag: "IN",
+			  TotalScoredMarks: 0.0,
+			  TotalScoredMarksRound: 0.0,
+			  TotalMarks: 120.0,
+			  StudentID: 181521,
+			  InternalTotalGrade: 100.0,
+			  GradeList: "E    ",
+			},
+			{
+			  ExamMasterID: 8441,
+			  InternalExamID: 922,
+			  Flag: "IN",
+			  TotalScoredMarks: 0.0,
+			  TotalScoredMarksRound: 0.0,
+			  TotalMarks: 120.0,
+			  StudentID: 181521,
+			  InternalTotalGrade: 100.0,
+			  GradeList: "E    ",
+			},
+			{
+			  ExamMasterID: 8442,
+			  InternalExamID: 923,
+			  Flag: "IN",
+			  TotalScoredMarks: 0.0,
+			  TotalScoredMarksRound: 0.0,
+			  TotalMarks: 120.0,
+			  StudentID: 181521,
+			  InternalTotalGrade: 100.0,
+			  GradeList: "E    ",
+			},
+			{
+			  ExamMasterID: 8442,
+			  InternalExamID: 924,
+			  Flag: "IN",
+			  TotalScoredMarks: 0.0,
+			  TotalScoredMarksRound: 0.0,
+			  TotalMarks: 120.0,
+			  StudentID: 181521,
+			  InternalTotalGrade: 100.0,
+			  GradeList: "E    ",
+			},
+		  ],
+		  lstExamMasters: null,
+		},
+	  ],
+	},
+  }
 
-				const studentInfo = progressList.lstStudentInfo[0]
-				const stGrades = progressList.stGrades
+  function displayInfo(progressList) {
+	const studentInfo = progressList.lstStudentInfo[0];
+	// console.log(studentInfo,1)
+	const stGrades = progressList.stGrades;
 
-				let schoolNameEl = document.getElementById('schoolName');
-				schoolNameEl.textContent = studentInfo.SchoolName;
+	let schoolName =  studentInfo.SchoolName 
+	let schoolAddress =studentInfo.SchoolAddress 
+	let schoolPhone =  studentInfo.SchoolPhoneNumber 
+	let schoolEmail =  studentInfo.SchoolEmail 
+	let scholarNumber = studentInfo.AdmissionNumber 
+	let className =  studentInfo.ClassName 
+	let rollNumber =  studentInfo.RollNumber 
+	let name = studentInfo.Name 
+	let fathersName =  studentInfo.FatherName 
+	let mothersName = studentInfo.MotherName 
+	let dob =  studentInfo.DOB 
 
-				let schoolAddressEl = document.getElementById('schoolAddress');
-				schoolAddressEl.textContent = studentInfo.SchoolAddress +', Ph. : '+studentInfo.SchoolPhoneNumber;
+	let schoolNameEl = document.getElementById('schoolName');
+	schoolNameEl.textContent = schoolName;
 
-				let schoolEmailEl = document.getElementById('schoolEmail');
-				schoolEmailEl.textContent = 'Visit Us at: '+studentInfo.SchoolEmail;
+	let schoolAddressEl = document.getElementById('schoolAddress');
+	schoolAddressEl.textContent = schoolAddress +', Ph. : '+schoolPhone;
 
-				let scholarNoEl = document.getElementById('scholarNo');
-				scholarNoEl.textContent = ':- '+studentInfo.AdmissionNumber;
+	let schoolEmailEl = document.getElementById('schoolEmail');
+	schoolEmailEl.textContent = 'Visit Us at: '+schoolEmail;
 
-				let classEl = document.getElementById('class');
-				classEl.textContent = ':- '+studentInfo.ClassName;
+	let scholarNoEl = document.getElementById('scholarNo');
+	scholarNoEl.textContent = ':- '+scholarNumber;
 
-				let rollNoEl = document.getElementById('rollNo');
-				rollNoEl.textContent = ':- '+studentInfo.RollNumber;
+	let classEl = document.getElementById('class');
+	classEl.textContent = ':- '+className;
 
-				let nameEl = document.getElementById('name');
-				nameEl.textContent = ':- '+studentInfo.Name;
+	let rollNoEl = document.getElementById('rollNo');
+	rollNoEl.textContent = ':- '+rollNumber;
 
-				let fatherNameEl = document.getElementById('fatherName');
-				fatherNameEl.textContent = ':- '+studentInfo.FatherName;
+	let nameEl = document.getElementById('name');
+	nameEl.textContent = ':- '+name;
 
-				let motherNameEl = document.getElementById('motherName');
-				motherNameEl.textContent = ':- '+studentInfo.MotherName;	
+	let fatherNameEl = document.getElementById('fatherName');
+	fatherNameEl.textContent = ':- '+fathersName;
 
-				let attendanceEl = document.getElementById('attendance');
-				attendanceEl.textContent = ':- '+0;
+	let motherNameEl = document.getElementById('motherName');
+	motherNameEl.textContent = ':- '+mothersName;	
 
-				let dobEl = document.getElementById('dob');
-				dobEl.textContent = ':- '+studentInfo.DOB;
+	let attendanceEl = document.getElementById('attendance');
+	attendanceEl.textContent = ':- '+135;
 
-				
-				let internalsDetails = studentInfo.stInternals
-				let subjectNames = []
-				for (let each of internalsDetails) {
-					if (each.ClassSubject in subjectNames) {
-						pass
-					} else {
-						subjectNames.push(each.ClassSubject)
-					}
-				};
+	let dobEl = document.getElementById('dob');
+	dobEl.textContent = ':- '+dob;
 
-				const subjects = new Set(subjectNames)
-				console.log(subjects)
-
-				const firstTermInternals = []
-				const secondTermInternals = []
-				for (let subject of subjects) {
-					let filteredInternals = internalsDetails.filter(each => each.ClassSubject===subject)
-					firstTermInternals.push(Math.max(parseInt(filteredInternals[0].GradePoints),parseInt(filteredInternals[1].GradePoints)))
-					secondTermInternals.push(Math.max(parseInt(filteredInternals[2].GradePoints),parseInt(filteredInternals[3].GradePoints)))
-				}
-				console.log(firstTermInternals, secondTermInternals)
-
-				const termDetails = studentInfo.lstStudent
-				const firstTermMains = []
-				const secondTermMains = []
-				for (let subject of subjects) {
-					let filteredMains = termDetails.filter(each => each.SubjectName===subject)
-					firstTermMains.push(parseInt(filteredMains[0].Subject_GradePoints))
-					secondTermMains.push(parseInt(filteredMains[1].Subject_GradePoints))
-				}
-				console.log(firstTermMains, secondTermMains)
-
-				const firstTermTotal = []
-				for (let i in firstTermInternals) {
-					firstTermTotal.push(0.2*firstTermInternals[i]+0.8*firstTermMains[i])
-				}
-
-				const secondTermTotal = []
-				for (let i in secondTermInternals) {
-					secondTermTotal.push(0.2*secondTermInternals[i]+0.8*secondTermMains[i])
-				}
-
-				const finalResult = []
-				for (let i in firstTermTotal) {
-					finalResult.push(0.5*firstTermTotal[i]+0.5*secondTermTotal[i])
-				}
-
-				const grades = []
-				for (let score of finalResult) {
-					for (let grade of stGrades) {
-						if (grade.minRange <= score*10 <= grade.maxRange) {
-							grades.push(grade.Grade.trim())
-							break
-						}
-					}
-				}
-
-				console.log(grades)
-
-
-				for (let i in subjects) {
-					let tableEl = document.getElementById("table");
-
-					let rowEl = document.createElement("tr")
-
-					let subjectEl = document.createElement("th")
-					subjectEl.textContent = subjects[i]
-					rowEl.appendChild(subjectEl)
-
-					let internal1El = document.createElement("td")
-					internal1El.textContent = firstTermInternals[i]
-					rowEl.appendChild(internal1El)
-
-					let mains1El = document.createElement("td")
-					mains1El.textContent = firstTermMains[i]
-					rowEl.appendChild(mains1El)
-
-					let total1El = document.createElement("td")
-					total1El.textContent = firstTermTotal[i]
-					rowEl.appendChild(total1El)
-
-					let internal2El = document.createElement("td")
-					internal2El.textContent = secondTermInternals[i]
-					rowEl.appendChild(internal2El)
-
-					let mains2El = document.createElement("td")
-					mains2El.textContent = secondTermMains[i]
-					rowEl.appendChild(mains2El)
-
-					let total2El = document.createElement("td")
-					total2El.textContent = secondTermTotal[i]
-					rowEl.appendChild(total2El)
-
-					let grandTotal = document.createElement("td")
-					grandTotal.textContent = finalResult[i]
-					rowEl.appendChild(grandTotal)
-
-					let gradeEl = document.createElement("td")
-					gradeEl.textContent = grades[i]
-					rowEl.appendChild(gradeEl)
-
-					tableEl.appendChild(rowEl)
-				}
-
-
-
+	
+	let subjects = ''
+	if (studentInfo!== undefined) {
+		let internalsDetails = studentInfo.stInternals
+		let subjectNames = []
+		for (let each of internalsDetails) {
+			if (each.ClassSubject in subjectNames) {
+				pass
+			} else {
+				subjectNames.push(each.ClassSubject)
 			}
+		};
 
-			let url = "http://stageapi.iguru.guru:222/api/ExamManagement/GetStudentProgressReports?schoolID=282&sectionID=2682&eXamMasID=8442&students=181521";
-            let options = {
-    		  method: "GET"
-    		};
-    		fetch(url, options)
-    		  .then(function (response) {
-    		    return response.json();
-    		  })
-    		  .then(function (jsonData) {
-				let progressList = jsonData.Response.ProgressList;
-				displayInfo(progressList)
-    		  });
+		subjects = new Set(subjectNames)
+		// console.log(subjects)
+	} else {
+		subjects = new Set(['TELUGU', 'HINDI', 'ENGLISH', 'MATHS', 'SCIENCE', 'SOCIAL'])
+	}
+	// console.log(subjects)
+
+	const subjectsList = []
+	for (let i of subjects) {
+		subjectsList.push(i)
+	}
+	// console.log(subjectsList)
+	let internalsDetails = studentInfo.stInternals
+	let firstTermInternals = []
+	let secondTermInternals = []
+	if (studentInfo!== undefined) {
+		for (let subject of subjects) {
+			let filteredInternals = internalsDetails.filter(each => each.ClassSubject===subject)
+			firstTermInternals.push(Math.max(parseInt(filteredInternals[0].GradePoints),parseInt(filteredInternals[1].GradePoints)))
+			secondTermInternals.push(Math.max(parseInt(filteredInternals[2].GradePoints),parseInt(filteredInternals[3].GradePoints)))
+		}
+	} else {
+		firstTermInternals=[6,5,4,6,6,5]
+		secondTermInternals=[6,5,5,6,5,5]
+	}
+	// console.log(firstTermInternals, secondTermInternals)
+
+	let firstTermMains = []
+	let secondTermMains = []
+	if (studentInfo !== undefined) {
+		const termDetails = studentInfo.lstStudent
+		for (let subject of subjects) {
+			let filteredMains = termDetails.filter(each => each.SubjectName===subject)
+			firstTermMains.push(parseInt(filteredMains[0].Subject_GradePoints))
+			secondTermMains.push(parseInt(filteredMains[1].Subject_GradePoints))
+		}
+	} else {
+		firstTermMains=[10,9,9,10,10,8]
+		secondTermMains=[10,8,9,10,9,8]
+	}
+	// console.log(firstTermMains, secondTermMains)
+
+	const firstTermTotal = []
+	for (let i in firstTermInternals) {
+		firstTermTotal.push(0.2*firstTermInternals[i]+0.8*firstTermMains[i])
+	}
+
+	const secondTermTotal = []
+	for (let i in secondTermInternals) {
+		secondTermTotal.push(0.2*secondTermInternals[i]+0.8*secondTermMains[i])
+	}
+
+	const finalResult = []
+	for (let i in firstTermTotal) {
+		finalResult.push(0.5*firstTermTotal[i]+0.5*secondTermTotal[i])
+	}
+	// console.log(finalResult)
+
+	const grades = []
+	for (let score of finalResult) {
+		for (let grade of stGrades) {
+			if (grade.minRange <= score*10 && score*10 <= grade.maxRange) {
+				grades.push(grade.Grade.trim())
+				break
+			}
+		}
+	}
+
+	// console.log(grades)
+
+	const totalScores = [
+	Number((firstTermInternals.reduce((a, b) => a + b, 0) / firstTermInternals.length).toFixed(2)),
+	Number((firstTermMains.reduce((a, b) => a + b, 0) / firstTermMains.length).toFixed(2)),
+	Number((firstTermTotal.reduce((a, b) => a + b, 0) / firstTermTotal.length).toFixed(2)),
+	Number((secondTermInternals.reduce((a, b) => a + b, 0) / secondTermInternals.length).toFixed(2)),
+	Number((secondTermMains.reduce((a, b) => a + b, 0) / secondTermMains.length).toFixed(2)),
+	Number((secondTermTotal.reduce((a, b) => a + b, 0) / secondTermTotal.length).toFixed(2)),
+	Number((finalResult.reduce((a, b) => a + b, 0) / finalResult.length).toFixed(2))
+	]
+	console.log(totalScores)
+	
+	const finalTotalScore = Number((finalResult.reduce((a, b) => a + b, 0) / finalResult.length).toFixed(2))
+	let finalGrade = ''
+	for (let grade of stGrades) {
+		if (grade.minRange <= finalTotalScore*10 && finalTotalScore*10 <= grade.maxRange) {
+			finalGrade = grade.Grade.trim()
+			break
+		}
+	}
+	// console.log(finalGrade)
+	
+
+
+	let tableEl = document.getElementById("table");
+
+	for (let i in subjectsList) {
+		let rowEl = document.createElement("tr")
+
+		let subjectEl = document.createElement("th")
+		subjectEl.textContent = subjectsList[i]
+		rowEl.appendChild(subjectEl)
+
+		let internal1El = document.createElement("td")
+		internal1El.textContent = firstTermInternals[i]
+		rowEl.appendChild(internal1El)
+
+		let mains1El = document.createElement("td")
+		mains1El.textContent = firstTermMains[i]
+		rowEl.appendChild(mains1El)
+
+		let total1El = document.createElement("td")
+		total1El.textContent = firstTermTotal[i]
+		rowEl.appendChild(total1El)
+
+		let internal2El = document.createElement("td")
+		internal2El.textContent = secondTermInternals[i]
+		rowEl.appendChild(internal2El)
+
+		let mains2El = document.createElement("td")
+		mains2El.textContent = secondTermMains[i]
+		rowEl.appendChild(mains2El)
+
+		let total2El = document.createElement("td")
+		total2El.textContent = secondTermTotal[i]
+		rowEl.appendChild(total2El)
+
+		let grandTotal = document.createElement("td")
+		grandTotal.textContent = finalResult[i]
+		rowEl.appendChild(grandTotal)
+
+		let gradeEl = document.createElement("td")
+		gradeEl.textContent = grades[i]
+		rowEl.appendChild(gradeEl)
+
+		tableEl.appendChild(rowEl)
+	}
+
+	let finalRowEl = document.createElement("tr")
+
+	let totalCatEl = document.createElement("th")
+	totalCatEl.textContent = 'TOTAL'
+	finalRowEl.appendChild(totalCatEl)
+
+	let internalTot1El = document.createElement("th")
+	internalTot1El.textContent = totalScores[0]
+	finalRowEl.appendChild(internalTot1El)
+
+	let mainsTot1El = document.createElement("th")
+	mainsTot1El.textContent = totalScores[1]
+	finalRowEl.appendChild(mainsTot1El)
+
+	let totalTot1El = document.createElement("th")
+	totalTot1El.textContent = totalScores[2]
+	finalRowEl.appendChild(totalTot1El)
+
+	let internalTot2El = document.createElement("th")
+	internalTot2El.textContent = totalScores[3]
+	finalRowEl.appendChild(internalTot2El)
+
+	let mainsTot2El = document.createElement("th")
+	mainsTot2El.textContent = totalScores[4]
+	finalRowEl.appendChild(mainsTot2El)
+
+	let totalTot2El = document.createElement("th")
+	totalTot2El.textContent = totalScores[5]
+	finalRowEl.appendChild(totalTot2El)
+
+	let grandTotTotal = document.createElement("th")
+	grandTotTotal.textContent = totalScores[6]
+	finalRowEl.appendChild(grandTotTotal)
+
+	let gradeFinalEl = document.createElement("th")
+	gradeFinalEl.textContent = finalGrade
+	finalRowEl.appendChild(gradeFinalEl)
+
+	tableEl.appendChild(finalRowEl)
+
+	// console.log(stGrades[stGrades.length-1])
+
+	const result = finalTotalScore*10 > stGrades[stGrades.length-1].maxRange ? 'PASS' : 'FAIL'
+
+	// console.log(result)
+
+	document.getElementById("result").textContent = 'Result:- '+result;
+	document.getElementById("GPA").textContent = 'CGPA:- '+finalTotalScore;
+	document.getElementById("grade").textContent = 'Grade:- '+finalGrade;
+
+}
+
+
+let url = "http://stageapi.iguru.guru:222/api/ExamManagement/GetStudentProgressReports?schoolID=282&sectionID=2682&eXamMasID=8442&students=181521";
+let options = {
+	method: "GET"
+};
+fetch(url, options)
+	.then(function (response) {
+	return response.json();
+	})
+	.then(function (jsonData) {
+	let progressList = jsonData.Response.ProgressList;
+	// console.log(progressList)
+	if (progressList.lstStudentInfo.length===0){
+		displayInfo(apiData.ProgressList)
+		// console.log('true')
+	}else{
+		displayInfo(progressList)
+		// console.log('false')
+	}
+	});
